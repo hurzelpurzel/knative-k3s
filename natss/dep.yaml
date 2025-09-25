@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nats-streaming
+  namespace: knative-eventing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nats-streaming
+  template:
+    metadata:
+      labels:
+        app: nats-streaming
+    spec:
+      containers:
+        - name: nats-streaming
+          image: nats-streaming:latest
+          ports:
+            - containerPort: 4222
+            - containerPort: 8222
+          args: ["-m", "8222", "-p", "4222", "-hbi", "5s", "-hbt", "5s", "-hbf", "2"]
