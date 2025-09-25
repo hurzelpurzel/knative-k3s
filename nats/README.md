@@ -12,6 +12,9 @@ helm upgrade --install nats nats/nats -n nats
 ```
 kubectl apply -f https://github.com/knative-extensions/eventing-natss/releases/download/knative-v1.18.3/eventing-jsm.yaml
 
+kubectl apply -f https://github.com/knative-extensions/eventing-natss/releases/latest/download/eventing-natss.yaml
+
+
 kubectl apply -f cm.yaml -n knative-eventing
 ```
 
