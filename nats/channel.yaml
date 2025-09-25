@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+
+  name: event-sample
+---  
+apiVersion: messaging.knative.dev
+kind: NatsJetStreamChannels
+metadata:
+  name: my-natss-channel
+  namespace: event-sample
+spec:
+  # Optional: Custom configuration for this channel
+  config:
+    # You can specify custom configuration options here
